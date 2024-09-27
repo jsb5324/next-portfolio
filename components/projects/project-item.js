@@ -13,8 +13,8 @@ export default function ProjectItem({data}) {
     const end = data.properties?.작업기간.date.end;
     const description = data.properties?.설명.rich_text[0].plain_text;
     const github = data.properties?.Github.url;
-    const imgSrc = data.cover.file?.url || data.cover.external.url;
     const demo = data.properties?.Demo.url;
+    const imgUrl = data.properties?.Image.url;
     console.log(demo);
     const router = useRouter();
 
@@ -35,7 +35,7 @@ export default function ProjectItem({data}) {
     const workDay = countWorkDays(start,end)
     return (
       <Card sx={{ width: 345, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-      <CardMedia sx={{ height: 300 }} image={imgSrc} title={title} />
+      <CardMedia sx={{ height: 300 }} image={imgUrl} title={title} />
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="div">
           {title}
